@@ -2,12 +2,10 @@
 
 one:
   id: 1
-  name: Erico
-  email: e@d.com
-  password: 123
+  comment_id: 1
+  user_id: 1
 
 two:
   id: 2
-  name: Andre
-  email: a@s.com
-  password: 123
+  opinion_id: 1
+  user_id: 2

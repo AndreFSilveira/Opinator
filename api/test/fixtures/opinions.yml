@@ -2,12 +2,10 @@
 
 one:
   id: 1
-  name: Erico
-  email: e@d.com
-  password: 123
+  description: Faculdade precisa de um RU
+  user_id: 1
 
 two:
   id: 2
-  name: Andre
-  email: a@s.com
-  password: 123
+  description: Tarcízio é foda
+  user_id: 2
