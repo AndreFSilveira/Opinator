@@ -3,4 +3,6 @@ class Opinion < ActiveRecord::Base
 	validates :description, length: { minimum: 10 }
 
 	belongs_to :user
+	has_many :disagree
+	has_many :comment
 end

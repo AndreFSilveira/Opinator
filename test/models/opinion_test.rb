@@ -24,6 +24,6 @@ class OpinionTest < ActiveSupport::TestCase
     assert opinion.valid?, 'save for complete data'
 
     opinion.save!
-    assert_not opinion.user.name.nil?
+    assert_not opinion.user.name.nil?, 'Opinion saved user'
   end
 end

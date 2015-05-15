@@ -555,3 +555,119 @@ Processing by Api::V1::UsersController#get as JSON
   Parameters: {"id"=>"15"}
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 15]]
 Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+  [1m[36m (137.6ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (131.9ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (132.2ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (131.8ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (99.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (103.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (100.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (121.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (133.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (133.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36m (133.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (133.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36m (129.7ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (132.4ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (132.1ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (133.2ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (120.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (98.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (99.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (135.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (133.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36m (133.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (133.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (129.7ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (98.6ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (98.8ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (98.7ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (100.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (134.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (131.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (132.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (122.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (100.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36m (102.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (100.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36m (96.8ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (98.6ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (109.9ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (110.0ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (110.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (121.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (142.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (154.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (144.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (122.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36m (122.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (131.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (121.2ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (98.5ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (144.6ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (131.8ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (132.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (121.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (131.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (132.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (133.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (133.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36m (133.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (133.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36m (120.9ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (98.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (98.7ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (109.9ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (165.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (132.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (132.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (143.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (155.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (155.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36m (162.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (316.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (111.5ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (99.5ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (99.3ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (124.4ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (142.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (121.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (142.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (132.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (133.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (244.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36m (111.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (110.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36m (97.1ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (98.7ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (98.9ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (100.4ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (112.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (110.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (132.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (132.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (111.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (100.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36m (100.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (100.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
