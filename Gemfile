@@ -28,6 +28,7 @@ gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
 
 group :development, :test do
