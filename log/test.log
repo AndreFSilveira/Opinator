@@ -1,0 +1,105 @@
+  [1m[36m (185.2ms)[0m  [1mCREATE TABLE "agrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (154.7ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "opinion_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (155.0ms)[0m  [1mCREATE TABLE "disagrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opinion_id" integer, "comment_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (143.5ms)[0m  CREATE TABLE "opinions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (198.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (203.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (165.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (154.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515010101')
+  [1m[36m (144.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515005912')[0m
+  [1m[35m (155.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005812')
+  [1m[36m (177.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150515010055')[0m
+  [1m[35m (279.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150515005937')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-15 01:08:47', '2015-05-15 01:08:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-15 01:08:47', '2015-05-15 01:08:47')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-15 01:08:47', '2015-05-15 01:08:47')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-15 01:08:47', '2015-05-15 01:08:47')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-15 01:08:47', '2015-05-15 01:08:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-15 01:08:47', '2015-05-15 01:08:47')[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-15 01:08:47', '2015-05-15 01:08:47')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-15 01:08:47', '2015-05-15 01:08:47')
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-15 01:08:47', '2015-05-15 01:08:47')
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-15 01:08:47', '2015-05-15 01:08:47')[0m
+  [1m[35m (169.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------
+UserTest: test_validates_of
+---------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mOpinion Load (2.0ms)[0m  [1mSELECT "opinions".* FROM "opinions"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-15 01:11:50', '2015-05-15 01:11:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-15 01:11:50', '2015-05-15 01:11:50')[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-15 01:11:50', '2015-05-15 01:11:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-15 01:11:50', '2015-05-15 01:11:50')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-15 01:11:50', '2015-05-15 01:11:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-15 01:11:50', '2015-05-15 01:11:50')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-15 01:11:50', '2015-05-15 01:11:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-15 01:11:50', '2015-05-15 01:11:50')
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-15 01:11:50', '2015-05-15 01:11:50')
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-15 01:11:50', '2015-05-15 01:11:50')[0m
+  [1m[35m (149.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------
+UserTest: test_validates_of
+---------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-15 01:18:41', '2015-05-15 01:18:41')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-15 01:18:41', '2015-05-15 01:18:41')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-15 01:18:41', '2015-05-15 01:18:41')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-15 01:18:41', '2015-05-15 01:18:41')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-15 01:18:41', '2015-05-15 01:18:41')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-15 01:18:41', '2015-05-15 01:18:41')[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-15 01:18:41', '2015-05-15 01:18:41')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-15 01:18:41', '2015-05-15 01:18:41')
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-15 01:18:41', '2015-05-15 01:18:41')
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-15 01:18:41', '2015-05-15 01:18:41')[0m
+  [1m[35m (158.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------
+UserTest: test_validates_of
+---------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'e' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@d.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@d.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'erico_teste@yahoo.com.br' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mAgree Load (0.2ms)[0m  [1mSELECT  "agrees".* FROM "agrees"  ORDER BY "agrees"."id" ASC LIMIT 1[0m
+  [1m[35mAgree Load (1.9ms)[0m  SELECT  "agrees".* FROM "agrees"  ORDER BY "agrees"."id" ASC LIMIT 1
+  [1m[36mAgree Load (0.3ms)[0m  [1mSELECT  "agrees".* FROM "agrees"  ORDER BY "agrees"."id" ASC LIMIT 1[0m
+  [1m[36mOpinion Load (0.3ms)[0m  [1mSELECT  "opinions".* FROM "opinions"  ORDER BY "opinions"."id" ASC LIMIT 1[0m
+  [1m[35mOpinion Load (1.8ms)[0m  SELECT  "opinions".* FROM "opinions"  ORDER BY "opinions"."id" ASC LIMIT 1
+  [1m[36mOpinion Load (0.3ms)[0m  [1mSELECT  "opinions".* FROM "opinions"  ORDER BY "opinions"."id" ASC LIMIT 1[0m
+  [1m[35mOpinion Load (0.4ms)[0m  SELECT  "opinions".* FROM "opinions"  ORDER BY "opinions"."id" ASC LIMIT 1
+  [1m[36mOpinion Load (0.3ms)[0m  [1mSELECT  "opinions".* FROM "opinions"  ORDER BY "opinions"."id" ASC LIMIT 1[0m
+  [1m[35mOpinion Load (0.3ms)[0m  SELECT  "opinions".* FROM "opinions"  ORDER BY "opinions"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
