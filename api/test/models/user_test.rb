@@ -18,6 +18,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.valid?, 'not save for small password'
 
     user.password = "123123"
+    assert_not user.valid?, 'not valid for duplicated email'
+
+    user.email = "erico_teste@yahoo.com.br"
     assert user.valid?, 'save for complete data'
   end
 end
