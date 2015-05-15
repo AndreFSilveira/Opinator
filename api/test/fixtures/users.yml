@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: Erico
+  email: e@d.com
+  password: 123
+
+two:
+  id: 2
+  name: Andre
+  email: a@s.com
+  password: 123

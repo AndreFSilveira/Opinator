@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  description: Concordo
+  user_id: 1
+  opinion_id: 1
+
+two:
+  id: 2
+  description: Discordo
+  user_id: 2
+  opinion_id: 2
