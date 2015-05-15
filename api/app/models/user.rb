@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
     validates_uniqueness_of :email
 
     has_many :opinion, dependent: :destroy
+
+    def self.search(search)
+    if search
+        where(['lower(name) LIKE ?', "%#{search}%".downcase])
+    else
+        all
+    end
+  end
 end
