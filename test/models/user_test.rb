@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "validates of" do
+  test "validates of User" do
     user = User.new
     assert_not user.valid?, 'not save for empty data'
 

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
     validates :password, length: { minimum: 6 }
     validates_uniqueness_of :email
 
+    has_many :opinion, dependent: :destroy
+
     def self.search(search)
     if search
         where(['lower(name) LIKE ?', "%#{search}%".downcase])
