@@ -5,4 +5,12 @@ class User < ActiveRecord::Base
     validates_presence_of :password
     validates :password, length: { minimum: 6 }
     validates_uniqueness_of :email
+
+    def self.search(search)
+    if search
+        where(['lower(name) LIKE ?', "%#{search}%".downcase])
+    else
+        all
+    end
+  end
 end
