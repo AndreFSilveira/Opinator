@@ -555,3 +555,11 @@ Processing by Api::V1::UsersController#get as JSON
   Parameters: {"id"=>"15"}
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 15]]
 Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/users/15" for 127.0.0.1 at 2015-05-15 19:34:59 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#get as JSON
+  Parameters: {"id"=>"15"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 15]]
+Completed 200 OK in 48ms (Views: 0.2ms | ActiveRecord: 0.3ms)
