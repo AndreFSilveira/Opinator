@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
 
     def get
         respond_to do |format|
-          format.json { render :json => @user ? @user.to_json : record_not_found }
+          format.json { render :json => @user ? @user : record_not_found }
         end
     end
 
