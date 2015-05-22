@@ -38,7 +38,7 @@ class Api::V1::UsersController < ApplicationController
                 @user.destroy
                 format.json { render :json => success_hash }
             else
-                format.json { render :json => {error: 'Record not found'} }
+                format.json { render :json => record_not_found }
             end
         end
     end
