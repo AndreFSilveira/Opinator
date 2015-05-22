@@ -2,13 +2,17 @@ class Api::V1::CommentsController < ApplicationController
     before_action :set_comment, only: [:show, :update, :destroy]
 
     def index
+        @comments = Comment.all
+        respond_to do |format|
+            format.json { render :json => @comments ? @comments : record_not_found }
+        end
     end
 
     def create
         @comment = Comment.new comment_params
         respond_to do |format|
             if @comment.save
-                format.json { render :json => @comment.to_json }
+                format.json { render :json => success_hash }
             else
                 format.json { render :json => @comment.errors.to_json }
             end
@@ -24,7 +28,7 @@ class Api::V1::CommentsController < ApplicationController
     def update
         respond_to do |format|
             if @comment.update comment_params
-                format.json { render :json => @comment.to_json }
+                format.json { render :json => success_hash }
             else
                 format.json { render :json => @comment.errors.to_json }
             end
