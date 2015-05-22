@@ -1,5 +1,5 @@
 class Api::V1::OpinionsController < ApplicationController
-    before_action :set_user, only: [:get, :update, :destroy]
+    before_action :set_opinion, only: [:show, :update, :destroy]
 
     def index
     end
@@ -43,7 +43,7 @@ class Api::V1::OpinionsController < ApplicationController
     end
 
     private
-    def user_params
+    def opinion_params
         params.require(:opinion).permit(:description, :user_id)
     end
 

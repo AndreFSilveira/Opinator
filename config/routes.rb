@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :comments
       resources :opinions
       resources :disagrees
+      resources :agrees
     end
   end
 end
