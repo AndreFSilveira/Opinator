@@ -15,13 +15,13 @@ class Api::V1::DisagreesControllerTest < ActionController::TestCase
   end
 
   test "create" do
-    @disagree[:description] = ""
+    @disagree[:user_id] = ""
     post :create, {controller: 'api/v1/disagrees', disagree: @disagree, format: :json}
     assert_response :success
     response = JSON.parse @response.body
-    assert_not_nil response['description']
+    assert_not_nil response['user']
 
-    @disagree[:description] = 'Não é da sua contas'
+    @disagree[:user_id] = 1
     post :create, {controller: 'api/v1/disagrees', disagree: @disagree, format: :json}
     assert_response :success
     response = JSON.parse @response.body
@@ -29,11 +29,13 @@ class Api::V1::DisagreesControllerTest < ActionController::TestCase
   end
 
   test "update" do
-    @disagree[:description] = "Agora outra descrição"
+    @disagree[:opinion_id] = nil
+    @disagree[:comment_id] = 1
     put :update, {controller: 'api/v1/disagrees', disagree: @disagree, format: :json, id: 1}
     assert_response :success
     response = JSON.parse @response.body
-    assert response['description'] == 'Agora outra descrição'
+    assert response['opinion_id'] == nil
+    assert response['comment_id'] == 1
   end
 
   test "destroy" do
