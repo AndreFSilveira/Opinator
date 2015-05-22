@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :set_user, only: [:get, :update, :destroy]
+    before_action :set_user, only: [:show, :update, :destroy]
 
     def index
         @users = User.search(params[:search]).order('created_at DESC')
@@ -16,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
-    def get
+    def show
         respond_to do |format|
           format.json { render :json => @user ? @user.to_json : record_not_found }
         end
@@ -49,6 +49,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def set_user
-        @user = User.find_by_id(params[:id])
+        @user = User.find(params[:id])
     end
 end
