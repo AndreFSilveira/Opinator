@@ -2,6 +2,10 @@ class Api::V1::OpinionsController < ApplicationController
     before_action :set_opinion, only: [:show, :update, :destroy]
 
     def index
+        @opinions = Opinion.all
+        respond_to do |format|
+            format.json {render :json => @opinions ? @opinions : record_not_found }
+        end
     end
 
     def create

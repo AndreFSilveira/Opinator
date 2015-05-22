@@ -2,6 +2,10 @@ class Api::V1::DisagreesController < ApplicationController
     before_action :set_disagree, only: [:show, :update, :destroy]
 
     def index
+        @disagrees = Disagree.all
+        respond_to do |format| 
+            format.json { render :json => @disagrees ? @disagrees : record_not_found }
+        end   
     end
 
     def create

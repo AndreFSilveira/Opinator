@@ -2,6 +2,10 @@ class Api::V1::AgreesController < ApplicationController
     before_action :set_agree, only: [:show, :update, :destroy]
 
     def index
+        @agrees = Agree.all
+        respond_to do |format|
+            format.json { render :json => @agrees ? @agrees : record_not_found }
+        end
     end
 
     def create
