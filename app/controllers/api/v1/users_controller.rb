@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new user_params
         respond_to do |format|
             if @user.save
-                format.json { render :json => success_hash }
+                format.json { render :json => @user.to_json }
             else
                 format.json { render :json => @user.errors.to_json }
             end
@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
     def update
         respond_to do |format|
             if @user.update user_params
-                format.json { render :json => success_hash }
+                format.json { render :json => @user.to_json }
             else
                 format.json { render :json => @user.errors.to_json }
             end
@@ -36,7 +36,7 @@ class Api::V1::UsersController < ApplicationController
         respond_to do |format|
             if @user
                 @user.destroy
-                format.json { render :json => success_hash }
+                format.json { render :json => @user.to_json }
             else
                 format.json { render :json => record_not_found }
             end
@@ -49,6 +49,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def set_user
-        @user = User.find(params[:id])
+        @user = User.find_by_id(params[:id])
     end
 end

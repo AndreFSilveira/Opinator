@@ -685,3 +685,923 @@ UserTest: test_validates_of_User
   [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@d.com' LIMIT 1[0m
   [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'erico_teste@yahoo.com.br' LIMIT 1
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:53:35', '2015-05-22 00:53:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:53:35', '2015-05-22 00:53:35')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 00:53:35', '2015-05-22 00:53:35')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 00:53:35', '2015-05-22 00:53:35')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 00:53:35', '2015-05-22 00:53:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 00:53:35', '2015-05-22 00:53:35')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:53:35', '2015-05-22 00:53:35')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:53:35', '2015-05-22 00:53:35')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 00:53:35', '2015-05-22 00:53:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 00:53:35', '2015-05-22 00:53:35')[0m
+  [1m[35m (227.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 406 Not Acceptable in 11ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:54:03', '2015-05-22 00:54:03')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:54:03', '2015-05-22 00:54:03')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 00:54:03', '2015-05-22 00:54:03')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 00:54:03', '2015-05-22 00:54:03')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 00:54:03', '2015-05-22 00:54:03')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 00:54:03', '2015-05-22 00:54:03')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:54:03', '2015-05-22 00:54:03')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:54:03', '2015-05-22 00:54:03')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 00:54:03', '2015-05-22 00:54:03')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 00:54:03', '2015-05-22 00:54:03')[0m
+  [1m[35m (151.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 406 Not Acceptable in 11ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:55:07', '2015-05-22 00:55:07')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:55:07', '2015-05-22 00:55:07')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 00:55:07', '2015-05-22 00:55:07')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 00:55:07', '2015-05-22 00:55:07')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 00:55:07', '2015-05-22 00:55:07')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 00:55:07', '2015-05-22 00:55:07')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:55:07', '2015-05-22 00:55:07')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:55:07', '2015-05-22 00:55:07')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 00:55:07', '2015-05-22 00:55:07')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 00:55:07', '2015-05-22 00:55:07')[0m
+  [1m[35m (134.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:55:16', '2015-05-22 00:55:16')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:55:16', '2015-05-22 00:55:16')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 00:55:16', '2015-05-22 00:55:16')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 00:55:16', '2015-05-22 00:55:16')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 00:55:16', '2015-05-22 00:55:16')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 00:55:16', '2015-05-22 00:55:16')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:55:16', '2015-05-22 00:55:16')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:55:16', '2015-05-22 00:55:16')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 00:55:16', '2015-05-22 00:55:16')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 00:55:16', '2015-05-22 00:55:16')[0m
+  [1m[35m (170.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:55:35', '2015-05-22 00:55:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:55:35', '2015-05-22 00:55:35')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 00:55:35', '2015-05-22 00:55:35')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 00:55:35', '2015-05-22 00:55:35')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 00:55:35', '2015-05-22 00:55:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 00:55:35', '2015-05-22 00:55:35')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:55:35', '2015-05-22 00:55:35')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:55:35', '2015-05-22 00:55:35')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 00:55:35', '2015-05-22 00:55:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 00:55:35', '2015-05-22 00:55:35')[0m
+  [1m[35m (131.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:56:33', '2015-05-22 00:56:33')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:56:33', '2015-05-22 00:56:33')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 00:56:33', '2015-05-22 00:56:33')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 00:56:33', '2015-05-22 00:56:33')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 00:56:34', '2015-05-22 00:56:34')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 00:56:34', '2015-05-22 00:56:34')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:56:34', '2015-05-22 00:56:34')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:56:34', '2015-05-22 00:56:34')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 00:56:34', '2015-05-22 00:56:34')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 00:56:34', '2015-05-22 00:56:34')[0m
+  [1m[35m (145.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:56:44', '2015-05-22 00:56:44')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:56:44', '2015-05-22 00:56:44')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 00:56:44', '2015-05-22 00:56:44')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 00:56:44', '2015-05-22 00:56:44')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 00:56:44', '2015-05-22 00:56:44')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 00:56:44', '2015-05-22 00:56:44')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:56:44', '2015-05-22 00:56:44')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:56:44', '2015-05-22 00:56:44')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 00:56:44', '2015-05-22 00:56:44')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 00:56:44', '2015-05-22 00:56:44')[0m
+  [1m[35m (141.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:57:04', '2015-05-22 00:57:04')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:57:04', '2015-05-22 00:57:04')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 00:57:04', '2015-05-22 00:57:04')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 00:57:04', '2015-05-22 00:57:04')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 00:57:04', '2015-05-22 00:57:04')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 00:57:04', '2015-05-22 00:57:04')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 00:57:04', '2015-05-22 00:57:04')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 00:57:04', '2015-05-22 00:57:04')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 00:57:04', '2015-05-22 00:57:04')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 00:57:04', '2015-05-22 00:57:04')[0m
+  [1m[35m (136.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:02:21', '2015-05-22 01:02:21')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:02:21', '2015-05-22 01:02:21')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:02:21', '2015-05-22 01:02:21')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:02:21', '2015-05-22 01:02:21')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:02:21', '2015-05-22 01:02:21')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:02:21', '2015-05-22 01:02:21')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:02:21', '2015-05-22 01:02:21')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:02:21', '2015-05-22 01:02:21')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:02:21', '2015-05-22 01:02:21')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:02:21', '2015-05-22 01:02:21')[0m
+  [1m[35m (385.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@e.c", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@e.c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 570ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:03:03', '2015-05-22 01:03:03')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:03:03', '2015-05-22 01:03:03')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:03:03', '2015-05-22 01:03:03')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:03:03', '2015-05-22 01:03:03')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:03:03', '2015-05-22 01:03:03')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:03:03', '2015-05-22 01:03:03')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:03:03', '2015-05-22 01:03:03')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:03:03', '2015-05-22 01:03:03')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:03:03', '2015-05-22 01:03:03')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:03:03', '2015-05-22 01:03:03')[0m
+  [1m[35m (157.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@e.c", "password"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@e.c' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 355ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:03:21', '2015-05-22 01:03:21')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:03:21', '2015-05-22 01:03:21')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:03:21', '2015-05-22 01:03:21')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:03:21', '2015-05-22 01:03:21')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:03:21', '2015-05-22 01:03:21')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:03:21', '2015-05-22 01:03:21')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:03:21', '2015-05-22 01:03:21')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:03:21', '2015-05-22 01:03:21')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:03:21', '2015-05-22 01:03:21')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:03:21', '2015-05-22 01:03:21')[0m
+  [1m[35m (252.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 13ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@e.c", "password"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@e.c' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 352ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:03:35', '2015-05-22 01:03:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:03:35', '2015-05-22 01:03:35')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:03:35', '2015-05-22 01:03:35')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:03:35', '2015-05-22 01:03:35')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:03:35', '2015-05-22 01:03:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:03:35', '2015-05-22 01:03:35')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:03:35', '2015-05-22 01:03:35')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:03:35', '2015-05-22 01:03:35')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:03:35', '2015-05-22 01:03:35')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:03:35', '2015-05-22 01:03:35')[0m
+  [1m[35m (211.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@ea.ca' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["created_at", "2015-05-22 01:03:35.998016"], ["updated_at", "2015-05-22 01:03:35.998016"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:05:26', '2015-05-22 01:05:26')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:05:26', '2015-05-22 01:05:26')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:05:26', '2015-05-22 01:05:26')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:05:26', '2015-05-22 01:05:26')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:05:26', '2015-05-22 01:05:26')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:05:26', '2015-05-22 01:05:26')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:05:26', '2015-05-22 01:05:26')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:05:26', '2015-05-22 01:05:26')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:05:26', '2015-05-22 01:05:26')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:05:26', '2015-05-22 01:05:26')[0m
+  [1m[35m (215.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_update
+-----------------------------------------
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'e@ea.ca' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "name" = ?, "email" = ?, "password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["updated_at", "2015-05-22 01:05:26.643244"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@ea.ca' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["created_at", "2015-05-22 01:05:26.651265"], ["updated_at", "2015-05-22 01:05:26.651265"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:06:36', '2015-05-22 01:06:36')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:06:36', '2015-05-22 01:06:36')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:06:36', '2015-05-22 01:06:36')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:06:36', '2015-05-22 01:06:36')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:06:36', '2015-05-22 01:06:36')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:06:36', '2015-05-22 01:06:36')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:06:36', '2015-05-22 01:06:36')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:06:36', '2015-05-22 01:06:36')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:06:36', '2015-05-22 01:06:36')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:06:36', '2015-05-22 01:06:36')[0m
+  [1m[35m (220.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::UsersControllerTest: test_destroy
+------------------------------------------
+Processing by Api::V1::UsersController#destroy as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT "opinions".* FROM "opinions" WHERE "opinions"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "opinions" WHERE "opinions"."id" = ?[0m  [["id", 1]]
+  [1m[35mDisagree Load (0.2ms)[0m  SELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "disagrees" WHERE "disagrees"."id" = ?[0m  [["id", 1]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?  [["user_id", 1]]
+  [1m[36mAgree Load (0.2ms)[0m  [1mSELECT "agrees".* FROM "agrees" WHERE "agrees"."comment_id" = ?[0m  [["comment_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "agrees" WHERE "agrees"."id" = ?  [["id", 1]]
+  [1m[36mDisagree Load (0.2ms)[0m  [1mSELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."comment_id" = ?[0m  [["comment_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 133ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@ea.ca' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["created_at", "2015-05-22 01:06:36.813244"], ["updated_at", "2015-05-22 01:06:36.813244"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_update
+-----------------------------------------
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'e@ea.ca' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "name" = ?, "email" = ?, "password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["updated_at", "2015-05-22 01:06:36.822727"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:06:59', '2015-05-22 01:06:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:06:59', '2015-05-22 01:06:59')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:06:59', '2015-05-22 01:06:59')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:06:59', '2015-05-22 01:06:59')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:06:59', '2015-05-22 01:06:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:06:59', '2015-05-22 01:06:59')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:06:59', '2015-05-22 01:06:59')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:06:59', '2015-05-22 01:06:59')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:06:59', '2015-05-22 01:06:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:06:59', '2015-05-22 01:06:59')[0m
+  [1m[35m (134.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::UsersControllerTest: test_destroy
+------------------------------------------
+Processing by Api::V1::UsersController#destroy as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT "opinions".* FROM "opinions" WHERE "opinions"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "opinions" WHERE "opinions"."id" = ?[0m  [["id", 1]]
+  [1m[35mDisagree Load (0.2ms)[0m  SELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "disagrees" WHERE "disagrees"."id" = ?[0m  [["id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?  [["user_id", 1]]
+  [1m[36mAgree Load (0.1ms)[0m  [1mSELECT "agrees".* FROM "agrees" WHERE "agrees"."comment_id" = ?[0m  [["comment_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "agrees" WHERE "agrees"."id" = ?  [["id", 1]]
+  [1m[36mDisagree Load (0.1ms)[0m  [1mSELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."comment_id" = ?[0m  [["comment_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 62ms (Views: 0.1ms | ActiveRecord: 1.8ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_update
+-----------------------------------------
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'e@ea.ca' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "name" = ?, "email" = ?, "password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["updated_at", "2015-05-22 01:07:00.015049"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@ea.ca' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["created_at", "2015-05-22 01:07:00.021604"], ["updated_at", "2015-05-22 01:07:00.021604"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:07:15', '2015-05-22 01:07:15')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:07:15', '2015-05-22 01:07:15')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:07:15', '2015-05-22 01:07:15')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:07:15', '2015-05-22 01:07:15')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:07:15', '2015-05-22 01:07:15')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:07:15', '2015-05-22 01:07:15')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:07:15', '2015-05-22 01:07:15')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:07:15', '2015-05-22 01:07:15')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:07:15', '2015-05-22 01:07:15')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:07:15', '2015-05-22 01:07:15')[0m
+  [1m[35m (153.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@ea.ca' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["created_at", "2015-05-22 01:07:15.881110"], ["updated_at", "2015-05-22 01:07:15.881110"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+Api::V1::UsersControllerTest: test_update
+-----------------------------------------
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'e@ea.ca' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "name" = ?, "email" = ?, "password" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["updated_at", "2015-05-22 01:07:15.896947"], ["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::UsersControllerTest: test_destroy
+------------------------------------------
+Processing by Api::V1::UsersController#destroy as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT "opinions".* FROM "opinions" WHERE "opinions"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "opinions" WHERE "opinions"."id" = ?[0m  [["id", 1]]
+  [1m[35mDisagree Load (0.1ms)[0m  SELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "disagrees" WHERE "disagrees"."id" = ?[0m  [["id", 1]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?  [["user_id", 1]]
+  [1m[36mAgree Load (0.1ms)[0m  [1mSELECT "agrees".* FROM "agrees" WHERE "agrees"."comment_id" = ?[0m  [["comment_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "agrees" WHERE "agrees"."id" = ?  [["id", 1]]
+  [1m[36mDisagree Load (0.1ms)[0m  [1mSELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."comment_id" = ?[0m  [["comment_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 38ms (Views: 0.1ms | ActiveRecord: 1.5ms)
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 1ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:07:59', '2015-05-22 01:07:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:07:59', '2015-05-22 01:07:59')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:07:59', '2015-05-22 01:07:59')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:07:59', '2015-05-22 01:07:59')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:07:59', '2015-05-22 01:07:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:07:59', '2015-05-22 01:07:59')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:07:59', '2015-05-22 01:07:59')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:07:59', '2015-05-22 01:07:59')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:07:59', '2015-05-22 01:07:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:07:59', '2015-05-22 01:07:59')[0m
+  [1m[35m (146.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+Api::V1::UsersControllerTest: test_create
+-----------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@ea.ca' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["created_at", "2015-05-22 01:07:59.562491"], ["updated_at", "2015-05-22 01:07:59.562491"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+Api::V1::UsersControllerTest: test_show
+---------------------------------------
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+Api::V1::UsersControllerTest: test_destroy
+------------------------------------------
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'e@ea.ca' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["created_at", "2015-05-22 01:07:59.578061"], ["updated_at", "2015-05-22 01:07:59.578061"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+Processing by Api::V1::UsersController#destroy as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mOpinion Load (0.2ms)[0m  [1mSELECT "opinions".* FROM "opinions" WHERE "opinions"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mDisagree Load (0.2ms)[0m  SELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."user_id" = ?  [["user_id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Completed 404 Not Found in 1ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+Api::V1::UsersControllerTest: test_update
+-----------------------------------------
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Érico Dias", "email"=>"e@ea.ca", "password"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'e@ea.ca' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "name" = ?, "email" = ?, "password" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["name", "Érico Dias"], ["email", "e@ea.ca"], ["password", "123123123"], ["updated_at", "2015-05-22 01:07:59.603822"], ["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:16:17', '2015-05-22 01:16:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:16:17', '2015-05-22 01:16:17')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:16:17', '2015-05-22 01:16:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:16:17', '2015-05-22 01:16:17')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:16:17', '2015-05-22 01:16:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:16:17', '2015-05-22 01:16:17')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:16:17', '2015-05-22 01:16:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:16:17', '2015-05-22 01:16:17')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:16:17', '2015-05-22 01:16:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:16:17', '2015-05-22 01:16:17')[0m
+  [1m[35m (152.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+Api::V1::CommentsControllerTest: test_create
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+Api::V1::CommentsControllerTest: test_destroy
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::CommentsControllerTest: test_show
+------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+Api::V1::CommentsControllerTest: test_update
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:20:47', '2015-05-22 01:20:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:20:47', '2015-05-22 01:20:47')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:20:47', '2015-05-22 01:20:47')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:20:47', '2015-05-22 01:20:47')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:20:47', '2015-05-22 01:20:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:20:47', '2015-05-22 01:20:47')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:20:47', '2015-05-22 01:20:47')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:20:47', '2015-05-22 01:20:47')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:20:47', '2015-05-22 01:20:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:20:47', '2015-05-22 01:20:47')[0m
+  [1m[35m (133.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::CommentsControllerTest: test_show
+------------------------------------------
+Processing by Api::V1::CommentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mComment Load (0.4ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+Api::V1::CommentsControllerTest: test_update
+--------------------------------------------
+Processing by Api::V1::CommentsController#update as JSON
+  Parameters: {"comment"=>{"user_id"=>1, "opinion_id"=>1, "description"=>"Agora outra descrição"}, "id"=>"1"}
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "comments" SET "description" = ?, "updated_at" = ? WHERE "comments"."id" = ?[0m  [["description", "Agora outra descrição"], ["updated_at", "2015-05-22 01:20:47.371822"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+Api::V1::CommentsControllerTest: test_create
+--------------------------------------------
+Processing by Api::V1::CommentsController#create as JSON
+  Parameters: {"comment"=>{"user_id"=>1, "opinion_id"=>1, "description"=>""}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 336ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+Processing by Api::V1::CommentsController#create as JSON
+  Parameters: {"comment"=>{"user_id"=>1, "opinion_id"=>1, "description"=>"Não é da sua contas"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("user_id", "opinion_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["opinion_id", 1], ["description", "Não é da sua contas"], ["created_at", "2015-05-22 01:20:47.715602"], ["updated_at", "2015-05-22 01:20:47.715602"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+Api::V1::CommentsControllerTest: test_destroy
+---------------------------------------------
+Processing by Api::V1::CommentsController#create as JSON
+  Parameters: {"comment"=>{"user_id"=>1, "opinion_id"=>1, "description"=>"Não é da sua contas"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("user_id", "opinion_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["description", "Não é da sua contas"], ["created_at", "2015-05-22 01:20:47.720267"], ["updated_at", "2015-05-22 01:20:47.720267"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+Processing by Api::V1::CommentsController#destroy as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAgree Load (0.1ms)[0m  [1mSELECT "agrees".* FROM "agrees" WHERE "agrees"."comment_id" = ?[0m  [["comment_id", 3]]
+  [1m[35mDisagree Load (0.1ms)[0m  SELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."comment_id" = ?  [["comment_id", 3]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+Processing by Api::V1::CommentsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 404 Not Found in 1ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:21:59', '2015-05-22 01:21:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:21:59', '2015-05-22 01:21:59')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-05-22 01:21:59', '2015-05-22 01:21:59')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-05-22 01:21:59', '2015-05-22 01:21:59')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (1, 'Erico', 'e@d.com', '123', '2015-05-22 01:21:59', '2015-05-22 01:21:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "email", "password", "created_at", "updated_at") VALUES (2, 'Andre', 'a@s.com', '123', '2015-05-22 01:21:59', '2015-05-22 01:21:59')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-05-22 01:21:59', '2015-05-22 01:21:59')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-05-22 01:21:59', '2015-05-22 01:21:59')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-05-22 01:21:59', '2015-05-22 01:21:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-05-22 01:21:59', '2015-05-22 01:21:59')[0m
+  [1m[35m (173.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::CommentsControllerTest: test_show
+------------------------------------------
+Processing by Api::V1::CommentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+Api::V1::CommentsControllerTest: test_update
+--------------------------------------------
+Processing by Api::V1::CommentsController#update as JSON
+  Parameters: {"comment"=>{"user_id"=>1, "opinion_id"=>1, "description"=>"Agora outra descrição"}, "id"=>"1"}
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "comments" SET "description" = ?, "updated_at" = ? WHERE "comments"."id" = ?[0m  [["description", "Agora outra descrição"], ["updated_at", "2015-05-22 01:21:59.602041"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+Api::V1::CommentsControllerTest: test_create
+--------------------------------------------
+Processing by Api::V1::CommentsController#create as JSON
+  Parameters: {"comment"=>{"user_id"=>1, "opinion_id"=>1, "description"=>""}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 336ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+Processing by Api::V1::CommentsController#create as JSON
+  Parameters: {"comment"=>{"user_id"=>1, "opinion_id"=>1, "description"=>"Não é da sua contas"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("user_id", "opinion_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["opinion_id", 1], ["description", "Não é da sua contas"], ["created_at", "2015-05-22 01:21:59.946317"], ["updated_at", "2015-05-22 01:21:59.946317"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+Api::V1::CommentsControllerTest: test_destroy
+---------------------------------------------
+Processing by Api::V1::CommentsController#create as JSON
+  Parameters: {"comment"=>{"user_id"=>1, "opinion_id"=>1, "description"=>"Não é da sua contas"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("user_id", "opinion_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["description", "Não é da sua contas"], ["created_at", "2015-05-22 01:21:59.950937"], ["updated_at", "2015-05-22 01:21:59.950937"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+Processing by Api::V1::CommentsController#destroy as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAgree Load (0.1ms)[0m  [1mSELECT "agrees".* FROM "agrees" WHERE "agrees"."comment_id" = ?[0m  [["comment_id", 3]]
+  [1m[35mDisagree Load (0.1ms)[0m  SELECT "disagrees".* FROM "disagrees" WHERE "disagrees"."comment_id" = ?  [["comment_id", 3]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+Processing by Api::V1::CommentsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
