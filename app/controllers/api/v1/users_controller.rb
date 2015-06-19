@@ -1,10 +1,16 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :set_user, only: [:show, :update, :destroy]
+    before_action :set_user, only: [:show, :update, :destroy, :logged]
 
     def index
         @users = User.all
         respond_to do |format|
           format.json { render :json => @users ? @users : record_not_found }
+        end
+    end
+
+    def logged
+        respond_to do |format|
+            format.json { render :json => @user ? @user.logged : record_not_found }
         end
     end
 
