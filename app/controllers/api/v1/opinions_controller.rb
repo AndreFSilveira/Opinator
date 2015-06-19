@@ -16,7 +16,6 @@ class Api::V1::OpinionsController < ApplicationController
                 opinion['user'] = @user.attributes
                 each_opinion.attributes.each {|i,v| opinion[i] = v}
                 @opinions.push opinion
-                break
             end
         else
             @opinions = []
