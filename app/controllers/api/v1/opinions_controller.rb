@@ -48,7 +48,7 @@ class Api::V1::OpinionsController < ApplicationController
 
     private
     def opinion_params
-        params.require(:opinion).permit(:description, :user_id)
+        params.require(:opinion).permit(:description, :user_id, :approved, :title)
     end
 
     def set_opinion
