@@ -3,11 +3,11 @@
 one:
   id: 1
   name: Erico
-  email: e@d.com
-  password: 123
+  idFacebook: 12kasjdak1-029-123
+  logged: true
 
 two:
-  id: 2
-  name: Andre
-  email: a@s.com
-  password: 123
+  id: 1
+  name: André
+  idFacebook: 1asjdaslj871-029-123
+  logged: false
