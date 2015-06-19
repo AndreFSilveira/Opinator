@@ -1,9 +1,9 @@
 10.times do |n|
   name  = Faker::Name.name
-  idFacebook = Faker::Bitcoin.address
+  uid = Faker::Bitcoin.address
   logged = false
   User.create!(name:  name,
-              idFacebook: idFacebook,
+              uid: uid,
               logged: logged,)
 end
 
