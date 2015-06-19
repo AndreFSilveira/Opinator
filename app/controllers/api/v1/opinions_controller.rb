@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class Api::V1::OpinionsController < ApplicationController
     before_action :set_opinion, only: [:show, :update, :destroy]
 
@@ -22,7 +23,7 @@ class Api::V1::OpinionsController < ApplicationController
         end
 
         respond_to do |format|
-            format.json {render :json => @opinions ? @opinions : record_not_found }
+            format.json {render :json => @opinions ? @opinions.paginate(:page => params[:page], :per_page => 9) : record_not_found }
         end
     end
 

@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # i18n
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
 
+gem 'will_paginate'
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'
