@@ -1,5 +1,5 @@
 class ChangeColumnName < ActiveRecord::Migration
   def change
-  	rename_column :users, :idFacebook, :uid
+  	add_column :users, :uid, :string
   end
 end
