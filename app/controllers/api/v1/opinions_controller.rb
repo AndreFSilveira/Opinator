@@ -2,7 +2,26 @@ class Api::V1::OpinionsController < ApplicationController
     before_action :set_opinion, only: [:show, :update, :destroy]
 
     def index
-        @opinions = Opinion.all
+        @user = User.find(params[:user_id])
+
+        if(@user)
+            opinions = Opinion.all
+            @opinions = Array.new
+            opinions.each do |each_opinion|
+                opinion = Hash.new
+                opinion['likes'] = Agree.where(opinion_id: each_opinion.id).size
+                opinion['unlikes'] = Disagree.where(opinion_id: each_opinion.id).size
+                opinion['is_like'] = Agree.find_by(opinion_id: each_opinion.id, user_id: @user.id) ? true : false
+                opinion['is_unlike'] = Disagree.find_by(opinion_id: each_opinion.id, user_id: @user.id) ? true : false
+                opinion['user'] = @user.attributes
+                each_opinion.attributes.each {|i,v| opinion[i] = v}
+                @opinions.push opinion
+                break
+            end
+        else
+            @opinions = []
+        end
+
         respond_to do |format|
             format.json {render :json => @opinions ? @opinions : record_not_found }
         end
