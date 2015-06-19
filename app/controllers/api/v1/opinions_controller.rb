@@ -3,6 +3,29 @@ class Api::V1::OpinionsController < ApplicationController
     before_action :set_opinion, only: [:show, :update, :destroy]
 
     def index
+        if params[:user_id]
+            filter_opinions_with_id
+        else
+            all_opinions
+        end
+
+        respond_to do |format|
+            format.json {render :json => @opinions ? @opinions : record_not_found }
+        end
+    end
+
+    def all_opinions
+        @opinions = Array.new
+        opinions = Opinion.all
+        opinions.each do |each_opinion|
+            opinion = each_opinion.attributes
+            opinion['likes'] = Agree.where(opinion_id: each_opinion.id).size
+            opinion['unlikes'] = Disagree.where(opinion_id: each_opinion.id).size
+            @opinions.push(opinion)
+        end
+    end
+
+    def filter_opinions_with_id
         @user = User.find(params[:user_id])
 
         if(@user)
@@ -18,12 +41,9 @@ class Api::V1::OpinionsController < ApplicationController
                 each_opinion.attributes.each {|i,v| opinion[i] = v}
                 @opinions.push opinion
             end
+            @opinions = @opinions.paginate(:page => params[:page], :per_page => 9)
         else
             @opinions = []
-        end
-
-        respond_to do |format|
-            format.json {render :json => @opinions ? @opinions.paginate(:page => params[:page], :per_page => 9) : record_not_found }
         end
     end
 
