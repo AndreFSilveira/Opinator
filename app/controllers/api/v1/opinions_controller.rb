@@ -8,6 +8,12 @@ class Api::V1::OpinionsController < ApplicationController
         end
     end
 
+    def count
+        respond_to do |format|
+         format.json { render :json => Opinion.count }
+        end
+    end
+
     def create
         @opinion = Opinion.new opinion_params
         respond_to do |format|
@@ -48,7 +54,7 @@ class Api::V1::OpinionsController < ApplicationController
 
     private
     def opinion_params
-        params.require(:opinion).permit(:description, :user_id)
+        params.require(:opinion).permit(:description, :user_id, :approved, :title)
     end
 
     def set_opinion

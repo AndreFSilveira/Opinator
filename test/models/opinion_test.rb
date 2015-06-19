@@ -1,12 +1,12 @@
 require 'test_helper'
 
 class OpinionTest < ActiveSupport::TestCase
-  
+
   def setup
     @user = User.create( name: "Example User", email: "user@example.com",
                      password: "foobar")
   end
-  
+
   test "validates of Opinion" do
     opinion = Opinion.new
 
@@ -17,8 +17,6 @@ class OpinionTest < ActiveSupport::TestCase
 
     opinion.description = "A faculdade precisa de um xerox"
     assert_not opinion.valid?, 'not save for user_id'
-
-    puts @user
 
     opinion.user_id = @user.id
     assert opinion.valid?, 'save for complete data'

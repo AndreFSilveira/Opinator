@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20150619005707) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.boolean  "approved"
   end
 
   create_table "users", force: :cascade do |t|
