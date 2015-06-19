@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
     validates_presence_of :name
-    validates_presence_of :idFacebook
-    validates_uniqueness_of :idFacebook
+    validates_presence_of :uid
+    validates_uniqueness_of :uid
 
     has_many :opinion, dependent: :destroy
     has_many :disagree, dependent: :destroy

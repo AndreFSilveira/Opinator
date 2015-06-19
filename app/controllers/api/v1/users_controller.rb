@@ -54,7 +54,7 @@ class Api::V1::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name, :idFacebook, :logged)
+        params.require(:user).permit(:name, :uid, :logged)
     end
 
     def set_user

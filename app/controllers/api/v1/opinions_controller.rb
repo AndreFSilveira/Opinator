@@ -15,11 +15,7 @@ class Api::V1::OpinionsController < ApplicationController
                 opinion['is_like'] = Agree.find_by(opinion_id: each_opinion.id, user_id: @user.id) ? true : false
                 opinion['is_unlike'] = Disagree.find_by(opinion_id: each_opinion.id, user_id: @user.id) ? true : false
                 opinion['user'] = @user.attributes
-                opinion['title'] = each_opinion.title
-                opinion['description'] = each_opinion.description
-                opinion['approved'] = each_opinion.approved
-                opinion['id'] = each_opinion.id
-                #each_opinion.attributes.each {|i,v| opinion[i] = v}
+                each_opinion.attributes.each {|i,v| opinion[i] = v}
                 @opinions.push opinion
             end
         else
