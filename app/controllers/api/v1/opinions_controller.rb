@@ -8,6 +8,12 @@ class Api::V1::OpinionsController < ApplicationController
         end
     end
 
+    def count
+        respond_to do |format|
+         format.json { render :json => Opinion.count.to_json }
+        end
+    end
+
     def create
         @opinion = Opinion.new opinion_params
         respond_to do |format|
