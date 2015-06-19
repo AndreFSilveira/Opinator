@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :comments
       get 'opinions/filter/:user_id' => 'opinions#index'
       get 'opinions/count' => 'opinions#count'
+      get 'users/logged/:id'=> 'users#logged'
       resources :opinions
       resources :disagrees
       resources :agrees
