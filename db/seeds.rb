@@ -11,7 +11,10 @@ end
   description  = Faker::Lorem.paragraph
   user_id = 1
   Opinion.create!(description: description,
-  				  user_id: user_id )
+  				  user_id: user_id,
+            title: Faker::Name.title,
+            approved: true
+           )
 end
 
 10.times do |n|
