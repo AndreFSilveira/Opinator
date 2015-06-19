@@ -10,7 +10,7 @@ class Api::V1::OpinionsController < ApplicationController
 
     def count
         respond_to do |format|
-         format.json { render :json => Opinion.count.to_json }
+         format.json { render :json => Opinion.count }
         end
     end
 
