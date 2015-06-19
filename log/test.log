@@ -2738,3 +2738,750 @@ Processing by Api::V1::CommentsController#create as JSON
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
 Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (17.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "agrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "agrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "agrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "agrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "agrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "agrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "agrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "agrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 21:56:46', '2015-06-19 21:56:46')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:00:47', '2015-06-19 22:00:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:00:47', '2015-06-19 22:00:47')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:00:47', '2015-06-19 22:00:47')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:00:47', '2015-06-19 22:00:47')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:00:47', '2015-06-19 22:00:47')
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:00:47', '2015-06-19 22:00:47')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:00:47', '2015-06-19 22:00:47')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mAgree Load (2.4ms)[0m  [1mSELECT "agrees".* FROM "agrees"[0m
+  [1m[35mAgree Load (0.3ms)[0m  SELECT "agrees".* FROM "agrees"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:01:25', '2015-06-19 22:01:25')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:01:25', '2015-06-19 22:01:25')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:01:25', '2015-06-19 22:01:25')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:01:25', '2015-06-19 22:01:25')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:01:25', '2015-06-19 22:01:25')
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:01:25', '2015-06-19 22:01:25')[0m
+SQLite3::ConstraintException: UNIQUE constraint failed: users.id: INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:01:25', '2015-06-19 22:01:25')
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:02:41', '2015-06-19 22:02:41')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:02:41', '2015-06-19 22:02:41')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:02:41', '2015-06-19 22:02:41')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:02:41', '2015-06-19 22:02:41')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:02:41', '2015-06-19 22:02:41')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:02:41', '2015-06-19 22:02:41')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:02:41', '2015-06-19 22:02:41')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:02:41', '2015-06-19 22:02:41')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:02:41', '2015-06-19 22:02:41')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:02:41', '2015-06-19 22:02:41')[0m
+  [1m[35m (181.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:02:42.163543"], ["updated_at", "2015-06-19 22:02:42.163543"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 76ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:03:10', '2015-06-19 22:03:10')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:03:10', '2015-06-19 22:03:10')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:03:10', '2015-06-19 22:03:10')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:03:10', '2015-06-19 22:03:10')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:03:10', '2015-06-19 22:03:10')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:03:10', '2015-06-19 22:03:10')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:03:10', '2015-06-19 22:03:10')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:03:10', '2015-06-19 22:03:10')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:03:10', '2015-06-19 22:03:10')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:03:10', '2015-06-19 22:03:10')[0m
+  [1m[35m (198.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:03:11.064267"], ["updated_at", "2015-06-19 22:03:11.064267"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 27ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:03:19', '2015-06-19 22:03:19')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:03:19', '2015-06-19 22:03:19')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:03:19', '2015-06-19 22:03:19')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:03:19', '2015-06-19 22:03:19')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:03:19', '2015-06-19 22:03:19')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:03:19', '2015-06-19 22:03:19')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:03:19', '2015-06-19 22:03:19')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:03:19', '2015-06-19 22:03:19')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:03:19', '2015-06-19 22:03:19')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:03:19', '2015-06-19 22:03:19')[0m
+  [1m[35m (252.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:03:20.124028"], ["updated_at", "2015-06-19 22:03:20.124028"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:03:50', '2015-06-19 22:03:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:03:50', '2015-06-19 22:03:50')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:03:50', '2015-06-19 22:03:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:03:50', '2015-06-19 22:03:50')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:03:50', '2015-06-19 22:03:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:03:50', '2015-06-19 22:03:50')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:03:50', '2015-06-19 22:03:50')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:03:50', '2015-06-19 22:03:50')
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:03:50', '2015-06-19 22:03:50')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:03:50', '2015-06-19 22:03:50')[0m
+  [1m[35m (149.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:03:50.541614"], ["updated_at", "2015-06-19 22:03:50.541614"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:04:00', '2015-06-19 22:04:00')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:04:00', '2015-06-19 22:04:00')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:04:00', '2015-06-19 22:04:00')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:04:00', '2015-06-19 22:04:00')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:04:00', '2015-06-19 22:04:00')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:04:00', '2015-06-19 22:04:00')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:04:00', '2015-06-19 22:04:00')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:04:00', '2015-06-19 22:04:00')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:04:00', '2015-06-19 22:04:00')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:04:00', '2015-06-19 22:04:00')[0m
+  [1m[35m (212.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:04:00.659675"], ["updated_at", "2015-06-19 22:04:00.659675"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:04:17', '2015-06-19 22:04:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:04:17', '2015-06-19 22:04:17')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:04:17', '2015-06-19 22:04:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:04:17', '2015-06-19 22:04:17')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:04:17', '2015-06-19 22:04:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:04:17', '2015-06-19 22:04:17')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:04:17', '2015-06-19 22:04:17')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:04:17', '2015-06-19 22:04:17')
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:04:17', '2015-06-19 22:04:17')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:04:17', '2015-06-19 22:04:17')[0m
+  [1m[35m (182.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:04:17.781354"], ["updated_at", "2015-06-19 22:04:17.781354"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:04:36', '2015-06-19 22:04:36')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:04:36', '2015-06-19 22:04:36')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:04:36', '2015-06-19 22:04:36')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:04:36', '2015-06-19 22:04:36')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:04:36', '2015-06-19 22:04:36')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:04:36', '2015-06-19 22:04:36')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:04:36', '2015-06-19 22:04:36')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:04:36', '2015-06-19 22:04:36')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:04:36', '2015-06-19 22:04:36')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:04:36', '2015-06-19 22:04:36')[0m
+  [1m[35m (215.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:04:36.954768"], ["updated_at", "2015-06-19 22:04:36.954768"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:05:02', '2015-06-19 22:05:02')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:05:02', '2015-06-19 22:05:02')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:05:02', '2015-06-19 22:05:02')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:05:02', '2015-06-19 22:05:02')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:05:02', '2015-06-19 22:05:02')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:05:02', '2015-06-19 22:05:02')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:05:02', '2015-06-19 22:05:02')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:05:02', '2015-06-19 22:05:02')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:05:02', '2015-06-19 22:05:02')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:05:02', '2015-06-19 22:05:02')[0m
+  [1m[35m (226.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:05:02.555729"], ["updated_at", "2015-06-19 22:05:02.555729"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 36ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:05:10', '2015-06-19 22:05:10')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:05:10', '2015-06-19 22:05:10')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:05:10', '2015-06-19 22:05:10')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:05:10', '2015-06-19 22:05:10')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:05:10', '2015-06-19 22:05:10')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:05:10', '2015-06-19 22:05:10')[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:05:10', '2015-06-19 22:05:10')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:05:10', '2015-06-19 22:05:10')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:05:10', '2015-06-19 22:05:10')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:05:10', '2015-06-19 22:05:10')[0m
+  [1m[35m (207.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+Api::V1::AgreesControllerTest: test_create_agree
+------------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:05:11.010538"], ["updated_at", "2015-06-19 22:05:11.010538"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:05:38', '2015-06-19 22:05:38')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:05:38', '2015-06-19 22:05:38')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:05:38', '2015-06-19 22:05:38')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:05:38', '2015-06-19 22:05:38')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:05:38', '2015-06-19 22:05:38')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:05:38', '2015-06-19 22:05:38')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:05:38', '2015-06-19 22:05:38')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:05:38', '2015-06-19 22:05:38')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:05:38', '2015-06-19 22:05:38')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:05:38', '2015-06-19 22:05:38')[0m
+  [1m[35m (237.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::AgreesControllerTest: test_create
+------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:05:38.671586"], ["updated_at", "2015-06-19 22:05:38.671586"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:06:47', '2015-06-19 22:06:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:06:47', '2015-06-19 22:06:47')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:06:47', '2015-06-19 22:06:47')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:06:47', '2015-06-19 22:06:47')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:06:47', '2015-06-19 22:06:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:06:47', '2015-06-19 22:06:47')[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:06:47', '2015-06-19 22:06:47')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:06:47', '2015-06-19 22:06:47')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:06:47', '2015-06-19 22:06:47')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:06:47', '2015-06-19 22:06:47')[0m
+  [1m[35m (184.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::AgreesControllerTest: test_create
+------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:06:47.887024"], ["updated_at", "2015-06-19 22:06:47.887024"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:06:59', '2015-06-19 22:06:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:06:59', '2015-06-19 22:06:59')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:06:59', '2015-06-19 22:06:59')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:06:59', '2015-06-19 22:06:59')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:06:59', '2015-06-19 22:06:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:06:59', '2015-06-19 22:06:59')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:06:59', '2015-06-19 22:06:59')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:06:59', '2015-06-19 22:06:59')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:06:59', '2015-06-19 22:06:59')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:06:59', '2015-06-19 22:06:59')[0m
+  [1m[35m (213.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::AgreesControllerTest: test_create
+------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:07:08', '2015-06-19 22:07:08')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:07:08', '2015-06-19 22:07:08')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:07:08', '2015-06-19 22:07:08')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:07:08', '2015-06-19 22:07:08')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:07:08', '2015-06-19 22:07:08')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:07:08', '2015-06-19 22:07:08')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:07:08', '2015-06-19 22:07:08')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:07:08', '2015-06-19 22:07:08')
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:07:08', '2015-06-19 22:07:08')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:07:08', '2015-06-19 22:07:08')[0m
+  [1m[35m (213.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::AgreesControllerTest: test_create
+------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:07:26', '2015-06-19 22:07:26')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:07:26', '2015-06-19 22:07:26')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:07:26', '2015-06-19 22:07:26')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:07:26', '2015-06-19 22:07:26')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:07:26', '2015-06-19 22:07:26')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:07:26', '2015-06-19 22:07:26')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:07:26', '2015-06-19 22:07:26')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:07:26', '2015-06-19 22:07:26')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:07:26', '2015-06-19 22:07:26')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:07:26', '2015-06-19 22:07:26')[0m
+  [1m[35m (176.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::AgreesControllerTest: test_create
+------------------------------------------
+Processing by Api::V1::AgreesController#create as HTML
+  Parameters: {"agree"=>{"user_id"=>"1", "opinion_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:07:26.412297"], ["updated_at", "2015-06-19 22:07:26.412297"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 406 Not Acceptable in 35ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:07:52', '2015-06-19 22:07:52')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:07:52', '2015-06-19 22:07:52')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:07:52', '2015-06-19 22:07:52')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:07:52', '2015-06-19 22:07:52')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:07:52', '2015-06-19 22:07:52')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:07:52', '2015-06-19 22:07:52')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:07:52', '2015-06-19 22:07:52')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:07:52', '2015-06-19 22:07:52')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:07:52', '2015-06-19 22:07:52')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:07:52', '2015-06-19 22:07:52')[0m
+  [1m[35m (182.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::AgreesControllerTest: test_create
+------------------------------------------
+Processing by Api::V1::AgreesController#create as JSON
+  Parameters: {"agree"=>{"user_id"=>1, "opinion_id"=>1}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:07:52.841935"], ["updated_at", "2015-06-19 22:07:52.841935"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:07:58', '2015-06-19 22:07:58')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:07:58', '2015-06-19 22:07:58')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:07:58', '2015-06-19 22:07:58')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:07:58', '2015-06-19 22:07:58')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:07:58', '2015-06-19 22:07:58')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:07:58', '2015-06-19 22:07:58')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:07:58', '2015-06-19 22:07:58')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:07:58', '2015-06-19 22:07:58')
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:07:58', '2015-06-19 22:07:58')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:07:58', '2015-06-19 22:07:58')[0m
+  [1m[35m (197.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::AgreesControllerTest: test_create
+------------------------------------------
+Processing by Api::V1::AgreesController#create as JSON
+  Parameters: {"agree"=>{"user_id"=>1, "opinion_id"=>1}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:07:58.860331"], ["updated_at", "2015-06-19 22:07:58.860331"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "agrees"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "agrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:08:11', '2015-06-19 22:08:11')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "agrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:08:11', '2015-06-19 22:08:11')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (1, 'Concordo', 1, 1, '2015-06-19 22:08:11', '2015-06-19 22:08:11')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("id", "description", "user_id", "opinion_id", "created_at", "updated_at") VALUES (2, 'Discordo', 2, 2, '2015-06-19 22:08:11', '2015-06-19 22:08:11')
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (1, 'Erico', '12kasjdak1-029-123', 't', '2015-06-19 22:08:11', '2015-06-19 22:08:11')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "name", "idFacebook", "logged", "created_at", "updated_at") VALUES (2, 'André', '1asjdaslj871-029-123', 'f', '2015-06-19 22:08:11', '2015-06-19 22:08:11')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "disagrees"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "disagrees" ("id", "comment_id", "user_id", "created_at", "updated_at") VALUES (1, 1, 1, '2015-06-19 22:08:11', '2015-06-19 22:08:11')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "disagrees" ("id", "opinion_id", "user_id", "created_at", "updated_at") VALUES (2, 1, 2, '2015-06-19 22:08:11', '2015-06-19 22:08:11')
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "opinions"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (1, 'Faculdade precisa de um RU', 1, '2015-06-19 22:08:11', '2015-06-19 22:08:11')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "opinions" ("id", "description", "user_id", "created_at", "updated_at") VALUES (2, 'Tarcízio é foda', 2, '2015-06-19 22:08:11', '2015-06-19 22:08:11')[0m
+  [1m[35m (187.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+Api::V1::AgreesControllerTest: test_create
+------------------------------------------
+Processing by Api::V1::AgreesController#create as JSON
+  Parameters: {"agree"=>{"user_id"=>1, "opinion_id"=>1}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mOpinion Load (0.2ms)[0m  SELECT  "opinions".* FROM "opinions" WHERE "opinions"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "agrees" ("user_id", "opinion_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["opinion_id", 1], ["created_at", "2015-06-19 22:08:12.193594"], ["updated_at", "2015-06-19 22:08:12.193594"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
