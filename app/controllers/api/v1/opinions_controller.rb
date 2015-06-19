@@ -32,7 +32,7 @@ class Api::V1::OpinionsController < ApplicationController
             opinions = Opinion.all
             @opinions = Array.new
             opinions.each do |each_opinion|
-                user = Opinion.user
+                user = each_opinion.user
                 opinion = Hash.new
                 opinion['likes'] = Agree.where(opinion_id: each_opinion.id).size
                 opinion['unlikes'] = Disagree.where(opinion_id: each_opinion.id).size
