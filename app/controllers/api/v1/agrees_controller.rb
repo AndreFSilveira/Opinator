@@ -1,6 +1,10 @@
 class Api::V1::AgreesController < ApplicationController
     before_action :set_agree, only: [:show, :update, :destroy]
-
+    
+    def set_access_control_headers
+        headers['Access-Control-Allow-Origin'] = '*'
+    end
+    
     def index
         @agrees = Agree.all
         respond_to do |format|
