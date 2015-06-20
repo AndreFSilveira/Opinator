@@ -61,7 +61,13 @@ class Api::V1::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name, :uid, :logged)
+        if(!params[:user])
+            user_hash = JSON.parse(request.raw_post)
+            user = user_hash['user']
+            {name: user['name'], uid: user['uid'], logged: user['logged']}
+        else
+            params.require(:user).permit(:name, :uid, :logged)
+        end
     end
 
     def set_user

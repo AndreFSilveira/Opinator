@@ -3,9 +3,9 @@ class Api::V1::DisagreesController < ApplicationController
 
     def index
         @disagrees = Disagree.all
-        respond_to do |format| 
+        respond_to do |format|
             format.json { render :json => @disagrees ? @disagrees : record_not_found }
-        end   
+        end
     end
 
     def create
@@ -48,7 +48,13 @@ class Api::V1::DisagreesController < ApplicationController
 
     private
     def disagree_params
-        params.require(:disagree).permit(:user_id, :opinion_id, :comment_id)
+        if(!params[:disagree])
+            disagree_hash = JSON.parse(request.raw_post)
+            disagree = disagree_hash['disagree']
+            {user_id: disagree['user_id'], opinion_id: disagree['opinion_id']}
+        else
+            params.require(:disagree).permit(:user_id, :opinion_id)
+        end
     end
 
     def set_disagree

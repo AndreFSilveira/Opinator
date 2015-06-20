@@ -94,7 +94,13 @@ class Api::V1::OpinionsController < ApplicationController
 
     private
     def opinion_params
-        params.require(:opinion).permit(:description, :user_id, :approved, :title)
+        if(!params[:opinion])
+            opinion_hash = JSON.parse(request.raw_post)
+            opinion = opinion_hash['opinion']
+            {description: opinion['description'], user_id: opinion['user_id'], approved: opinion['approved'], title: opinion['title']}
+        else
+            params.require(:opinion).permit(:description, :user_id, :approved, :title)
+        end
     end
 
     def set_opinion
