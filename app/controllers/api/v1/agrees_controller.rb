@@ -1,10 +1,10 @@
 class Api::V1::AgreesController < ApplicationController
     before_action :set_agree, only: [:show, :update, :destroy]
-    
+
     def set_access_control_headers
         headers['Access-Control-Allow-Origin'] = '*'
     end
-    
+
     def index
         @agrees = Agree.all
         respond_to do |format|
@@ -31,7 +31,7 @@ class Api::V1::AgreesController < ApplicationController
 
     def update
         respond_to do |format|
-            if @Agree.update Agree_params
+            if @Agree.update agree_params
                 format.json { render :json => @Agree.to_json }
             else
                 format.json { render :json => @Agree.errors.to_json }
@@ -52,7 +52,7 @@ class Api::V1::AgreesController < ApplicationController
 
     private
     def agree_params
-        params.require(:agree).permit(:user_id, :opinion_id, :comment_id)
+        params.require(:agree).permit(:user_id, :opinion_id)
     end
 
     def set_agree
