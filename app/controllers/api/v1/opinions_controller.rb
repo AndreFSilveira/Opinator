@@ -100,13 +100,17 @@ class Api::V1::OpinionsController < ApplicationController
             params = Hash.new
             if(opinion['description'])
                 params[:description] = opinion['description']
-            elsif(opinion['user_id'])
+            end
+            if(opinion['user_id'])
                 params[:user_id] = opinion['user_id']
-            elsif(opinion['approved'])
+            end
+            if(opinion['approved'] != nil)
                 params[:approved] = opinion['approved']
-            elsif(opinion['title'])
+            end
+            if(opinion['title'])
                 params[:title] = opinion['title']
             end
+            p params.inspect
             params
         else
             params.require(:opinion).permit(:description, :user_id, :approved, :title)
