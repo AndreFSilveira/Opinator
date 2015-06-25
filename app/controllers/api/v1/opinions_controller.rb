@@ -73,7 +73,7 @@ class Api::V1::OpinionsController < ApplicationController
 
     def update
         respond_to do |format|
-            if @opinion.update opinion_params
+            if @opinion.update_attributes opinion_params
                 format.json { render :json => success_hash }
             else
                 format.json { render :json => @opinion.errors.to_json }
@@ -97,7 +97,17 @@ class Api::V1::OpinionsController < ApplicationController
         if(!params[:opinion])
             opinion_hash = JSON.parse(request.raw_post)
             opinion = opinion_hash['opinion']
-            {description: opinion['description'], user_id: opinion['user_id'], approved: opinion['approved'] ? opinion['approved'] : false, title: opinion['title']}
+            params = Hash.new
+            if(opinion['description'])
+                params[:description] = opinion['description']
+            elsif(opinion['user_id'])
+                params[:user_id] = opinion['user_id']
+            elsif(opinion['approved'])
+                params[:approved] = opinion['approved']
+            elsif(opinion['title'])
+                params[:title] = opinion['title']
+            end
+            params
         else
             params.require(:opinion).permit(:description, :user_id, :approved, :title)
         end
