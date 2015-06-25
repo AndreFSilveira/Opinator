@@ -73,7 +73,7 @@ class Api::V1::OpinionsController < ApplicationController
 
     def update
         respond_to do |format|
-            if @opinion.update user_params
+            if @opinion.update opinion_params
                 format.json { render :json => success_hash }
             else
                 format.json { render :json => @opinion.errors.to_json }
