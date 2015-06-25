@@ -14,6 +14,13 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def find_by_uid
+        @user = User.find_by(uid: params[:uid])
+        respond_to do |format|
+            format.json { render :json => @user ? @user : record_not_found }
+        end
+    end
+
     def create
         @user = User.new user_params
         respond_to do |format|
@@ -54,7 +61,13 @@ class Api::V1::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name, :uid, :logged)
+        if(!params[:user])
+            user_hash = JSON.parse(request.raw_post)
+            user = user_hash['user']
+            {name: user['name'], uid: user['uid'], logged: user['logged']}
+        else
+            params.require(:user).permit(:name, :uid, :logged)
+        end
     end
 
     def set_user

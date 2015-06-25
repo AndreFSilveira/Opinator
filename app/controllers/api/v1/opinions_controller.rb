@@ -16,7 +16,7 @@ class Api::V1::OpinionsController < ApplicationController
 
     def all_opinions
         @opinions = Array.new
-        opinions = Opinion.all
+        opinions = Opinion.all.order(id: :desc)
         opinions.each do |each_opinion|
             opinion = each_opinion.attributes
             opinion['likes'] = Agree.where(opinion_id: each_opinion.id).size
@@ -29,15 +29,16 @@ class Api::V1::OpinionsController < ApplicationController
         @user = User.find(params[:user_id])
 
         if(@user)
-            opinions = Opinion.all
+            opinions = Opinion.all.order(id: :desc)
             @opinions = Array.new
             opinions.each do |each_opinion|
+                user = each_opinion.user
                 opinion = Hash.new
                 opinion['likes'] = Agree.where(opinion_id: each_opinion.id).size
                 opinion['unlikes'] = Disagree.where(opinion_id: each_opinion.id).size
                 opinion['is_like'] = Agree.find_by(opinion_id: each_opinion.id, user_id: @user.id) ? true : false
                 opinion['is_unlike'] = Disagree.find_by(opinion_id: each_opinion.id, user_id: @user.id) ? true : false
-                opinion['user'] = @user.attributes
+                opinion['user'] = user.attributes
                 each_opinion.attributes.each {|i,v| opinion[i] = v}
                 @opinions.push opinion
             end
@@ -93,7 +94,13 @@ class Api::V1::OpinionsController < ApplicationController
 
     private
     def opinion_params
-        params.require(:opinion).permit(:description, :user_id, :approved, :title)
+        if(!params[:opinion])
+            opinion_hash = JSON.parse(request.raw_post)
+            opinion = opinion_hash['opinion']
+            {description: opinion['description'], user_id: opinion['user_id'], approved: opinion['approved'] ? opinion['approved'] : false, title: opinion['title']}
+        else
+            params.require(:opinion).permit(:description, :user_id, :approved, :title)
+        end
     end
 
     def set_opinion
