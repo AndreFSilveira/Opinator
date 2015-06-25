@@ -16,7 +16,7 @@ class Api::V1::OpinionsController < ApplicationController
 
     def all_opinions
         @opinions = Array.new
-        opinions = Opinion.all
+        opinions = Opinion.all.order(id: :desc)
         opinions.each do |each_opinion|
             opinion = each_opinion.attributes
             opinion['likes'] = Agree.where(opinion_id: each_opinion.id).size
@@ -29,7 +29,7 @@ class Api::V1::OpinionsController < ApplicationController
         @user = User.find(params[:user_id])
 
         if(@user)
-            opinions = Opinion.all
+            opinions = Opinion.all.order(id: :desc)
             @opinions = Array.new
             opinions.each do |each_opinion|
                 user = each_opinion.user
