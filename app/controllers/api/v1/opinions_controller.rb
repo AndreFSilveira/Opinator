@@ -97,21 +97,20 @@ class Api::V1::OpinionsController < ApplicationController
         if(!params[:opinion])
             opinion_hash = JSON.parse(request.raw_post)
             opinion = opinion_hash['opinion']
-            params = Hash.new
+            _params = Hash.new
             if(opinion['description'])
-                params[:description] = opinion['description']
+                _params[:description] = opinion['description']
             end
             if(opinion['user_id'])
-                params[:user_id] = opinion['user_id']
+                _params[:user_id] = opinion['user_id']
             end
             if(opinion['approved'] != nil)
-                params[:approved] = opinion['approved']
+                _params[:approved] = opinion['approved']
             end
             if(opinion['title'])
-                params[:title] = opinion['title']
+                _params[:title] = opinion['title']
             end
-            p params.inspect
-            params
+            _params
         else
             params.require(:opinion).permit(:description, :user_id, :approved, :title)
         end
