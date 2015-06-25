@@ -49,7 +49,7 @@ class Api::V1::OpinionsController < ApplicationController
 
     def count
         respond_to do |format|
-         format.json { render :json => Opinion.count }
+         format.json { render :json => Opinion.count('approved', :distinct => false) }
         end
     end
 
